@@ -1,94 +1,37 @@
-# Ionic PWA Toolkit
+# Simple To-Do List
+>  A simple To-Do List with StencilJs, Ionic and Firebase
 
-The PWA Toolkit is a starting point for building Progressive Web Apps using Ionic and Stencil.
-This combination of tools gives you the ability to build a fast, efficient PWA out of the box.
-
-For more info check out our [homepage](https://ionicframework.com/pwa/toolkit)!
-
-## Features
-
-* `@ionic/core` for the UI.
-* Stencil for the application logic and routing
-* Push Notifications setup
-* Unit Tests
-* Pre-rendering
-* Lazy-loading and code splitting
-* Intelligent Polyfills
-* Modern mode: ES6/ESM for new browser, ES5 for older
-* Service Worker, App manifest, iOS meta tags
-* Theming using CSS variables
-
-## Getting Started
-
-To start building, clone this repo to a new directory:
-
-```bash
-npm init stencil ionic-pwa
-```
+In this project, I will start to learn these technologies, and for that I will use to create a simple to-do list using them for this.
 
 
-## Production
+![](https://media0.giphy.com/media/Rm9RzjSAfXm4o/giphy.gif) 
 
-To build for production, run:
+## Instalação
 
-```bash
-npm run build
-```
-
-A production build includes:
-
-* Minified code bundles
-* Generated Service workers
-* App manifest
-
-## Hosting
-
-Apps should be hosted on through HTTPS, and if possible, through a provider that supports HTTP2.
-One provider that does support this is [Firebase Hosting](https://firebase.google.com/docs/hosting/).
-
-## H2 Push
-
-We recommend setting up HTTP2 Push on Firebase. H2 Push may sound complicated, but it's actually a simple concept. To learn about it, take a look at this [article](https://en.wikipedia.org/wiki/HTTP/2_Server_Push).
-
-To set this up for `my-app`:
-
-* Do a production build of the app: `npm run build`
-* Serve your WWW folder locally using a local http server and open in your browser.
-  * https://www.npmjs.com/package/http-server works pretty well for this. You can serve your www folder by running `http-server www`.
-* Open the DevTools and look at the network tab.
-  * Reload the page and you should see all of your files show up in the network tab. Excluding the `sw.js` file, these are the files you want to H2 push.
-* List these files in the link headers of your firebase.json file. For a syntax reference, review this [article](https://w3c.github.io/preload/#server-push-http-2)
-
-## Service Workers
-
-Service workers are generated via the Stencil build tool. For more information on how they can be configured, see the [Service Worker docs](https://stenciljs.com/docs/service-workers).
-
-## Developing with a Service Worker
-
-For most cases, you'll want to develop your app without generating a Service Worker. But if you'd like to test out Web Push Notifications or Background Sync, you'll need to have one generated. To generate a Service Worker during dev builds, we've added the npm script:
+Install StencilJs (Note that you will need to use npm 6 or higher.)
 
 ```
-npm run start.sw
+npm init stencil
+```
+Update
+
+```
+npm install @stencil/core@latest --save-exact
 ```
 
-This will start a dev build and generate a Service Worker as well.
+## Exemplos de uso
 
-## Unit Tests
+Alguns exemplos que incentivariam a pessoa a ultilizarem o projeto, ou que demonstrasse que este é útil para o que ele faz. 
+Divida essa parte em partes menores se possível, coloque algum código ou prints da tela.
 
-To run the unit tests once, run:
+## Ambiente de desenvolvimento
 
-```bash
-npm test
-```
+Descreer como instalar e preparar qualquer dependência de desenvolvimento para que seu projeto possa ser executado localmente e pessoa possam contribuir com o mesmo. 
+Se possível forneça as informações para diferentes plataformas( Windows, Linux, MacOS).
 
-To run the unit tests and watch for file changes during development, run:
+## Meta
 
-```bash
-npm run test.watch
-```
+Guilherme Sampaio - [@Guilherme Sampaio](httpshttps://www.linkedin.com/in/guilherme-sampaio-4946a01a6/google.com)
+Email - [gui_luizsampaio@hotmail.com]
 
-## Testing your PWA's performance
-
-We recommend using https://www.webpagetest.org/easy with the `Run Lighthouse Audit` option turned on.
-This will give you an in depth look into your app's load performance on the average device connected to the average network.
-For more info on how to use webpagetest check out [this article](https://zoompf.com/blog/2015/07/the-seo-experts-guide-to-web-performance-using-webpagetest-2)
+[https://github.com/Guilherme-Sampaio](https://github.com/Guilherme-Sampaio)
