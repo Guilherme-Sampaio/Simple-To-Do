@@ -26,6 +26,7 @@ Use the list to mark your tasks
 ## About me
 
 Guilherme Sampaio - [@Guilherme Sampaio](httpshttps://www.linkedin.com/in/guilherme-sampaio-4946a01a6/google.com)
+
 Email - [gui_luizsampaio@hotmail.com]
 
 [https://github.com/Guilherme-Sampaio](https://github.com/Guilherme-Sampaio)
