@@ -5,26 +5,34 @@ import { Task } from "../../interfaces/task";
   tag: "itens-list"
 })
 
-export class Itenslist {
-  @Prop() task: Task;
+export class ItensList {
+  @Prop() tasks: Task[];
 
-  a() {
-    console.log(this.task); 
+  componentWillLoad() {
+    console.log(this.tasks);
   }
 
   render() {
     return [
-      <ion-item lines="none">
-        <ion-text>descriptions comes here!</ion-text>
-        <ion-buttons slot="end">
-          <ion-button color="primary" onClick={() => this.a()}>
-            <ion-icon name="pencil" size="small"></ion-icon>
-          </ion-button>
-          <ion-button color="danger">
-            <ion-icon name="close-outline" size="default"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-item>
+      <ion-list>
+        <ion-list-header>
+          <ion-title>
+            liSTA
+          </ion-title>
+        </ion-list-header>
+        {this.tasks.map((task) => {
+        <ion-item lines="none">
+          <ion-text>{task.desc}</ion-text>
+          <ion-buttons slot="end">
+            <ion-button color="primary">
+              <ion-icon name="pencil" size="small"></ion-icon>
+            </ion-button>
+            <ion-button color="danger">
+              <ion-icon name="close-outline" size="default"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>})}
+      </ion-list>
     ]
   }
 }

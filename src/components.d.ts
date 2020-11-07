@@ -17,7 +17,7 @@ export namespace Components {
     interface EntryList {
     }
     interface ItensList {
-        "task": Task;
+        "tasks": Task[];
     }
 }
 declare global {
@@ -71,7 +71,7 @@ declare namespace LocalJSX {
         "onSendTask"?: (event: CustomEvent<Task>) => void;
     }
     interface ItensList {
-        "task"?: Task;
+        "tasks"?: Task[];
     }
     interface IntrinsicElements {
         "app-home": AppHome;

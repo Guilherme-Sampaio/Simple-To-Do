@@ -16,7 +16,7 @@ export class Entrylist {
   }
 
   emitTask() {
-    this.sendTask.emit(this.task);
+    this.sendTask.emit(this.task);;
   }
 
   render() {
