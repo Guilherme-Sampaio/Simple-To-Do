@@ -1,5 +1,5 @@
 # Simple To-Do List
->  A simple To-Do List with StencilJs, Ionic and Firebase
+>  A simple To-Do List with StencilJs, TypeScript, Ionic and Firebase
 
 In this project, I will start to learn these technologies, and for that I will use to create a simple to-do list using them for this.
 
