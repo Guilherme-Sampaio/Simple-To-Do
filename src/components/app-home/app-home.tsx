@@ -6,10 +6,13 @@ import { Task } from '../../interfaces/task';
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-  @State() task: Task = {} as Task;
+  @State() tasks: Task[] = [];
 
-  getTask(task) {
-    console.log(task.detail);
+  getTask(task: CustomEvent<Task>) {
+    this.tasks = [
+      ...this.tasks,
+      task.detail
+    ];
   }
 
   render() {
@@ -20,9 +23,10 @@ export class AppHome {
         </ion-toolbar>
       </ion-header>,
       <ion-content class="ion-padding">
+
         <entry-list onSendTask={(task) => this.getTask(task)}></entry-list>
         <ion-item-divider></ion-item-divider>
-        <itens-list></itens-list>
+        <itens-list tasks={this.tasks}></itens-list>
       </ion-content>
     ];
   }
