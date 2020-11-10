@@ -5,6 +5,7 @@ import { Task } from '../../interfaces/task';
   tag: 'app-home',
   styleUrl: 'app-home.css',
 })
+
 export class AppHome {
   @State() tasks: Task[] = [];
 
@@ -23,7 +24,6 @@ export class AppHome {
         </ion-toolbar>
       </ion-header>,
       <ion-content class="ion-padding">
-
         <entry-list onSendTask={(task) => this.getTask(task)}></entry-list>
         <ion-item-divider></ion-item-divider>
         <itens-list tasks={this.tasks}></itens-list>
