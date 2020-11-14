@@ -15,6 +15,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface EntryList {
+        "receiveTask": Task;
     }
     interface ItensList {
         "tasks": Task[];
@@ -69,8 +70,12 @@ declare namespace LocalJSX {
     }
     interface EntryList {
         "onSendTask"?: (event: CustomEvent<Task>) => void;
+        "onUpdateTask"?: (event: CustomEvent<Task>) => void;
+        "receiveTask"?: Task;
     }
     interface ItensList {
+        "onEventTask"?: (event: CustomEvent<Task>) => void;
+        "onEventTasks"?: (event: CustomEvent<Task[]>) => void;
         "tasks"?: Task[];
     }
     interface IntrinsicElements {
