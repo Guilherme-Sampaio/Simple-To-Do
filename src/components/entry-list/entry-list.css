@@ -1,3 +1,7 @@
 entry-list .text-align-end {
   text-align: end;
 }
+
+entry-list .ion-grid {
+  margin: 0 10px;
+}

@@ -1,3 +1,4 @@
+import {  modalController, OverlayEventDetail } from '@ionic/core';
 import { Component, h, State} from '@stencil/core';
 import { Task } from '../../interfaces/task';
 
@@ -9,14 +10,8 @@ import { Task } from '../../interfaces/task';
 export class AppHome {
   @State() tasks: Task[] = [];
   @State() task: Task = {} as Task;
-
-  getTask(task: CustomEvent<Task>) {
-    this.tasks = [
-      ...this.tasks,
-      task.detail
-    ];  
-    console.log('getTask', this.tasks);   
-  }
+  private seq: number = 0;
+  private rule: string = 'add'
 
   getTasks(tasks) {
     this.tasks = [...tasks.detail];
@@ -24,34 +19,58 @@ export class AppHome {
   
   modifyTask(task) {
     this.task = {...task.detail};
+    this.openModal();
   }
 
-  updateTask(task) {
+  addTask(data) {
+    this.seq = this.seq + 1;
+    this.task = {seq: this.seq} as Task;
+    this.tasks = [...this.tasks, data]
+  }
+  
+  updateTask(data) {
     let tasks: Task[] = [];
     this.tasks.map((taskMap) => {
-      if (taskMap.seq === task.detail.seq) {
-        tasks = [...tasks, task.detail];
-      } else {
+      if (taskMap.seq === this.task.seq) {
+        tasks = [...tasks, data];
+      } 
+      else {
         tasks = [...tasks, taskMap];
       }
     })
     this.tasks = [...tasks];
-    console.log('UpdateTask', this.tasks);   
+  }
+
+  async openModal() {
+    const modal: HTMLIonModalElement = await modalController.create({
+      component: 'entry-list',
+      backdropDismiss: false,
+      componentProps: {
+        'task': this.task,
+        'rule': this.rule
+      }
+    });
+    modal.onDidDismiss().then(
+      async (detail: OverlayEventDetail) => {
+        if (detail.data) {
+        detail.role === 'add' ? this.addTask(detail.data) : this.updateTask(detail.data)
+        this.task.name = ''
+        this.task.desc = ''
+        }
+      }
+    )
+    await modal.present();
   }
 
   render() {
-    return [
+    return [  
       <ion-header>
         <ion-toolbar color="primary">
           <ion-title>Todo-List</ion-title>
         </ion-toolbar>
       </ion-header>,
+       <ion-button onClick={() => this.openModal()} class="modalButton">Add Task</ion-button>,
       <ion-content class="ion-padding">
-        <entry-list 
-          onSendTask={(task) => this.getTask(task)} 
-          onUpdateTask={(task) => this.updateTask(task)}
-          receiveTask={this.task}>    
-        </entry-list>
         <ion-item-divider></ion-item-divider>
         <itens-list  
           onEventTasks={(tasks) => this.getTasks(tasks)} 
